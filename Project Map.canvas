@@ -1,106 +1,1065 @@
 {
-	"nodes":[
-		{"id":"flow-group","type":"group","x":1840,"y":-70,"width":900,"height":1515,"color":"4","label":"🎮 How one game plays out"},
-		{"id":"j-settings","type":"text","text":"### Settings\n- Numbers 1–100\n- 5 guesses","x":1360,"y":-69,"width":320,"height":135,"color":"4"},
-		{"id":"j-memory","type":"text","text":"### Remembers\n- The secret number\n- How many guesses are left","x":1360,"y":90,"width":320,"height":135,"color":"4"},
-		{"id":"j-start","type":"text","text":"### `startNewGame()`\n- Picks a new secret number\n- Resets guesses to 5\n- Clears the screen","x":1360,"y":249,"width":320,"height":161,"color":"4"},
-		{"id":"j-guess","type":"text","text":"### `handleGuess()`\n- Checks the guess is 1–100\n- Uses up a guess\n- Too high? Too low? Correct?","x":1360,"y":434,"width":320,"height":161,"color":"4"},
-		{"id":"j-feedback","type":"text","text":"### `showFeedback()`\n- Writes the message\n- Picks its colour","x":1360,"y":619,"width":320,"height":135,"color":"4"},
-		{"id":"j-showpopup","type":"text","text":"### `showPopup()`\n- Win or lose message\n- Shows the secret number if you lost\n- Locks the guess box","x":1360,"y":778,"width":320,"height":187,"color":"4"},
-		{"id":"j-close","type":"text","text":"### `closePopup()`\n- Waits 1 second first ⏱️\n- Hides the pop-up\n- Starts a new game","x":1360,"y":989,"width":320,"height":161,"color":"4"},
-		{"id":"f1","type":"text","text":"### 1️⃣ Page loads\nA secret number is picked\n⚙️ `startNewGame()`","x":1880,"y":0,"width":380,"height":135,"color":"4"},
-		{"id":"f2","type":"text","text":"### 2️⃣ Player types a guess\n…and presses **Enter** or **Guess**\n⚙️ `handleGuess()`","x":1880,"y":195,"width":380,"height":135,"color":"4"},
-		{"id":"f3","type":"text","text":"### 3️⃣ Is it a whole number from 1–100?","x":1880,"y":390,"width":380,"height":118,"color":"4"},
-		{"id":"f3no","type":"text","text":"### ⚠️ Not valid\n“Please enter a whole number from 1 to 100.”\n**No guess used up**\n⚙️ `showFeedback()`","x":2320,"y":370,"width":380,"height":187,"color":"2"},
-		{"id":"f4","type":"text","text":"### 4️⃣ Use up one guess\nCompare with the secret number\n⚙️ `handleGuess()`","x":1880,"y":568,"width":380,"height":135,"color":"4"},
-		{"id":"f4hint","type":"text","text":"### 🔴 Too high / Too low\nGuesses left? Try again!\n⚙️ `showFeedback()`","x":2320,"y":578,"width":380,"height":135,"color":"1"},
-		{"id":"root","type":"text","text":"# 🐾 Bluey Number Guessing Game\nGuess the secret number from **1 to 100** in **5 tries**.\nEach file has **one job** — follow the branches to see who does what.","x":900,"y":-620,"width":640,"height":149,"color":"5"},
-		{"id":"h-count","type":"text","text":"### Guesses left\n- Big number `#remaining-count`","x":480,"y":434,"width":320,"height":109,"color":"5"},
-		{"id":"css","type":"text","text":"## 🎨 [[style.css]]\n**Costumes & paint** — decides how things *look*","x":880,"y":-260,"width":360,"height":141,"color":"2"},
-		{"id":"c-colors","type":"text","text":"### Bluey colours\n- Bluey blue, Bingo orange, cream, grass green","x":920,"y":-69,"width":320,"height":135,"color":"2"},
-		{"id":"c-yard","type":"text","text":"### The backyard\n- Sky-blue background\n- Green grass hill","x":920,"y":90,"width":320,"height":135,"color":"2"},
-		{"id":"c-card","type":"text","text":"### Card & buttons\n- Big rounded corners\n- Bouncy buttons","x":920,"y":249,"width":320,"height":135,"color":"2"},
-		{"id":"c-feedback","type":"text","text":"### Message colours\n- 🔴 too high / too low\n- 🟠 not a valid number\n- 🟢 correct!","x":920,"y":408,"width":320,"height":161,"color":"2"},
-		{"id":"c-popup","type":"text","text":"### Pop-up look\n- 🟢 green box = win\n- 🔴 red box = lose\n- Pops in with an animation","x":920,"y":593,"width":320,"height":161,"color":"2"},
-		{"id":"c-phone","type":"text","text":"### Small phones\n- Box and button stack on top of each other","x":920,"y":778,"width":320,"height":135,"color":"2"},
-		{"id":"js","type":"text","text":"## ⚙️ [[script.js]]\n**The referee** — makes the game *work*","x":1320,"y":-260,"width":360,"height":141,"color":"4"},
-		{"id":"plan","type":"text","text":"## 📋 The Plan\n*Written before any code*","x":0,"y":-260,"width":360,"height":115,"color":"6"},
-		{"id":"claude","type":"text","text":"### [[CLAUDE.md]] — the rulebook\n- Number from 1–100, 5 guesses\n- Say **too high / too low / correct**\n- Always show guesses left\n- Pop-up when you win or lose\n- Closing it starts a new game\n- Keep it simple!","x":40,"y":-95,"width":320,"height":300,"color":"6"},
-		{"id":"wireframe","type":"file","file":"resources/number guessing wireframe.png","x":40,"y":229,"width":320,"height":307,"color":"6"},
-		{"id":"html","type":"text","text":"## 🏠 [[index.html]]\n**The stage set** — decides *what* is on the page","x":440,"y":-260,"width":360,"height":141,"color":"5"},
-		{"id":"h-head","type":"text","text":"### Page setup\n- Loads the Fredoka font\n- Loads **style.css**","x":480,"y":-69,"width":320,"height":135,"color":"5"},
-		{"id":"h-card","type":"text","text":"### Game card\n- Title: *Guess a Number*\n- The rules text","x":480,"y":90,"width":320,"height":135,"color":"5"},
-		{"id":"h-form","type":"text","text":"### Guess area\n- Number box `#guess-input`\n- **Guess** button\n- Message line `#feedback`","x":480,"y":249,"width":320,"height":161,"color":"5"},
-		{"id":"h-popup","type":"text","text":"### Pop-up (hidden at first)\n- Message `#popup-message`\n- Button `#popup-button`","x":480,"y":567,"width":320,"height":170,"color":"5"},
-		{"id":"h-hill","type":"text","text":"### Backyard hill\n- Just decoration 🌳","x":480,"y":761,"width":320,"height":109,"color":"5"},
-		{"id":"h-script","type":"text","text":"### Loads **script.js** last\n- So every element exists before the game starts","x":480,"y":894,"width":320,"height":170,"color":"5"},
-		{"id":"wf-label","type":"text","text":"**Wireframe** — the architect's sketch of the 4 screens","x":40,"y":571,"width":320,"height":100,"color":"6"},
-		{"id":"tools","type":"text","text":"## 🛠️ Helpers\n*Not part of the game — they help us build it*","x":2800,"y":-260,"width":360,"height":141,"color":"3"},
-		{"id":"t-qa","type":"text","text":"### 🧪 qa-agent\n- Plays the game in a real browser using **Playwright**\n- Checks features + phone & desktop layout\n- Needs Playwright added with:\n`claude mcp add playwright -- npx @playwright/mcp@latest`","x":2840,"y":-69,"width":320,"height":265,"color":"3"},
-		{"id":"t-mapper","type":"text","text":"### 🗺️ project-mapper\n- Reads the code (can't change it)\n- Writes the documentation","x":2840,"y":220,"width":320,"height":161,"color":"3"},
-		{"id":"t-map","type":"text","text":"### 📖 [[PROJECT_MAP.md]]\n- The full written guide, with line numbers","x":2840,"y":405,"width":320,"height":135,"color":"3"},
-		{"id":"f5win","type":"text","text":"### 🎉 Correct!\nGreen pop-up\n**Play Again**\n⚙️ `showPopup()`","x":1880,"y":793,"width":250,"height":187,"color":"4"},
-		{"id":"f5lose","type":"text","text":"### 😢 Out of guesses\nRed pop-up shows the number\n**Try Again**\n⚙️ `showPopup()`","x":2160,"y":793,"width":250,"height":187,"color":"1"},
-		{"id":"f6","type":"text","text":"### 5️⃣ Player closes the pop-up\n(ignored for the first second, so a quick extra Enter can't skip it)\n⚙️ `closePopup()`","x":1880,"y":1040,"width":380,"height":161,"color":"4"},
-		{"id":"f7","type":"text","text":"### 🔁 New game starts automatically\n⚙️ `startNewGame()`","x":1880,"y":1261,"width":380,"height":144,"color":"4"},
-		{"id":"legend","type":"text","text":"### 🗝️ How to read this map\n**Colours**\n🟣 plan · 🔵 index.html · 🟠 style.css · 🟢 script.js · 🟡 helpers\n\n**Arrows**\n- Grey: *this file contains…*\n- Red, labelled: *files talking to each other*\n- Green/red in the game box: *what happens next*\n- Cyan: *which function handles that step*","x":0,"y":-620,"width":520,"height":317}
+	"nodes": [
+		{
+			"id": "flow-group",
+			"type": "group",
+			"label": "🎮 How one game plays out",
+			"x": 1840,
+			"y": -70,
+			"width": 900,
+			"height": 1515,
+			"color": "4"
+		},
+		{
+			"id": "save-group",
+			"type": "group",
+			"label": "☁️ How the skills reach GitHub",
+			"x": 3240,
+			"y": 494,
+			"width": 840,
+			"height": 534,
+			"color": "3"
+		},
+		{
+			"id": "root",
+			"type": "text",
+			"x": 900,
+			"y": -620,
+			"width": 640,
+			"height": 149,
+			"text": "# 🐾 Bluey Number Guessing Game\nGuess the secret number from **1 to 100** in **5 tries**.\nEach file has **one job** — follow the branches to see who does what.",
+			"color": "5"
+		},
+		{
+			"id": "plan",
+			"type": "text",
+			"x": 0,
+			"y": -260,
+			"width": 360,
+			"height": 115,
+			"text": "## 📋 The Plan\n*Written before any code*",
+			"color": "6"
+		},
+		{
+			"id": "claude",
+			"type": "text",
+			"x": 40,
+			"y": -95,
+			"width": 320,
+			"height": 300,
+			"text": "### [[CLAUDE.md]] — the rulebook\n- Number from 1–100, 5 guesses\n- Say **too high / too low / correct**\n- Always show guesses left\n- Pop-up when you win or lose\n- Closing it starts a new game\n- Keep it simple!",
+			"color": "6"
+		},
+		{
+			"id": "wireframe",
+			"type": "file",
+			"file": "resources/number guessing wireframe.png",
+			"x": 40,
+			"y": 229,
+			"width": 320,
+			"height": 307,
+			"color": "6"
+		},
+		{
+			"id": "wf-label",
+			"type": "text",
+			"x": 40,
+			"y": 548,
+			"width": 320,
+			"height": 100,
+			"text": "**Wireframe** — the architect's sketch of the 4 screens",
+			"color": "6"
+		},
+		{
+			"id": "html",
+			"type": "text",
+			"x": 440,
+			"y": -260,
+			"width": 360,
+			"height": 141,
+			"text": "## 🏠 [[index.html]]\n**The stage set** — decides *what* is on the page",
+			"color": "5"
+		},
+		{
+			"id": "h-head",
+			"type": "text",
+			"x": 480,
+			"y": -69,
+			"width": 320,
+			"height": 135,
+			"text": "### Page setup\n- Loads the Fredoka font\n- Loads **style.css**",
+			"color": "5"
+		},
+		{
+			"id": "h-card",
+			"type": "text",
+			"x": 480,
+			"y": 90,
+			"width": 320,
+			"height": 135,
+			"text": "### Game card\n- Title: *Guess a Number*\n- The rules text",
+			"color": "5"
+		},
+		{
+			"id": "h-form",
+			"type": "text",
+			"x": 480,
+			"y": 249,
+			"width": 320,
+			"height": 161,
+			"text": "### Guess area\n- Number box `#guess-input`\n- **Guess** button\n- Message line `#feedback`",
+			"color": "5"
+		},
+		{
+			"id": "h-count",
+			"type": "text",
+			"x": 480,
+			"y": 434,
+			"width": 320,
+			"height": 109,
+			"text": "### Guesses left\n- Big number `#remaining-count`",
+			"color": "5"
+		},
+		{
+			"id": "h-popup",
+			"type": "text",
+			"x": 480,
+			"y": 567,
+			"width": 320,
+			"height": 170,
+			"text": "### Pop-up (hidden at first)\n- Message `#popup-message`\n- Button `#popup-button`",
+			"color": "5"
+		},
+		{
+			"id": "h-hill",
+			"type": "text",
+			"x": 480,
+			"y": 761,
+			"width": 320,
+			"height": 109,
+			"text": "### Backyard hill\n- Just decoration 🌳",
+			"color": "5"
+		},
+		{
+			"id": "h-script",
+			"type": "text",
+			"x": 480,
+			"y": 894,
+			"width": 320,
+			"height": 170,
+			"text": "### Loads **script.js** last\n- So every element exists before the game starts",
+			"color": "5"
+		},
+		{
+			"id": "css",
+			"type": "text",
+			"x": 880,
+			"y": -260,
+			"width": 360,
+			"height": 141,
+			"text": "## 🎨 [[style.css]]\n**Costumes & paint** — decides how things *look*",
+			"color": "2"
+		},
+		{
+			"id": "c-colors",
+			"type": "text",
+			"x": 920,
+			"y": -69,
+			"width": 320,
+			"height": 135,
+			"text": "### Bluey colours\n- Bluey blue, Bingo orange, cream, grass green",
+			"color": "2"
+		},
+		{
+			"id": "c-yard",
+			"type": "text",
+			"x": 920,
+			"y": 90,
+			"width": 320,
+			"height": 135,
+			"text": "### The backyard\n- Sky-blue background\n- Green grass hill",
+			"color": "2"
+		},
+		{
+			"id": "c-card",
+			"type": "text",
+			"x": 920,
+			"y": 249,
+			"width": 320,
+			"height": 135,
+			"text": "### Card & buttons\n- Big rounded corners\n- Bouncy buttons",
+			"color": "2"
+		},
+		{
+			"id": "c-feedback",
+			"type": "text",
+			"x": 920,
+			"y": 408,
+			"width": 320,
+			"height": 161,
+			"text": "### Message colours\n- 🔴 too high / too low\n- 🟠 not a valid number\n- 🟢 correct!",
+			"color": "2"
+		},
+		{
+			"id": "c-popup",
+			"type": "text",
+			"x": 920,
+			"y": 593,
+			"width": 320,
+			"height": 161,
+			"text": "### Pop-up look\n- 🟢 green box = win\n- 🔴 red box = lose\n- Pops in with an animation",
+			"color": "2"
+		},
+		{
+			"id": "c-phone",
+			"type": "text",
+			"x": 920,
+			"y": 778,
+			"width": 320,
+			"height": 135,
+			"text": "### Small phones\n- Box and button stack on top of each other",
+			"color": "2"
+		},
+		{
+			"id": "js",
+			"type": "text",
+			"x": 1320,
+			"y": -260,
+			"width": 360,
+			"height": 141,
+			"text": "## ⚙️ [[script.js]]\n**The referee** — makes the game *work*",
+			"color": "4"
+		},
+		{
+			"id": "j-settings",
+			"type": "text",
+			"x": 1360,
+			"y": -69,
+			"width": 320,
+			"height": 135,
+			"text": "### Settings\n- Numbers 1–100\n- 5 guesses",
+			"color": "4"
+		},
+		{
+			"id": "j-memory",
+			"type": "text",
+			"x": 1360,
+			"y": 90,
+			"width": 320,
+			"height": 135,
+			"text": "### Remembers\n- The secret number\n- How many guesses are left",
+			"color": "4"
+		},
+		{
+			"id": "j-start",
+			"type": "text",
+			"x": 1360,
+			"y": 249,
+			"width": 320,
+			"height": 161,
+			"text": "### `startNewGame()`\n- Picks a new secret number\n- Resets guesses to 5\n- Clears the screen",
+			"color": "4"
+		},
+		{
+			"id": "j-guess",
+			"type": "text",
+			"x": 1360,
+			"y": 434,
+			"width": 320,
+			"height": 161,
+			"text": "### `handleGuess()`\n- Checks the guess is 1–100\n- Uses up a guess\n- Too high? Too low? Correct?",
+			"color": "4"
+		},
+		{
+			"id": "j-feedback",
+			"type": "text",
+			"x": 1360,
+			"y": 619,
+			"width": 320,
+			"height": 135,
+			"text": "### `showFeedback()`\n- Writes the message\n- Picks its colour",
+			"color": "4"
+		},
+		{
+			"id": "j-showpopup",
+			"type": "text",
+			"x": 1360,
+			"y": 778,
+			"width": 320,
+			"height": 187,
+			"text": "### `showPopup()`\n- Win or lose message\n- Shows the secret number if you lost\n- Locks the guess box",
+			"color": "4"
+		},
+		{
+			"id": "j-close",
+			"type": "text",
+			"x": 1360,
+			"y": 989,
+			"width": 320,
+			"height": 161,
+			"text": "### `closePopup()`\n- Waits 1 second first ⏱️\n- Hides the pop-up\n- Starts a new game",
+			"color": "4"
+		},
+		{
+			"id": "tools",
+			"type": "text",
+			"x": 2800,
+			"y": -260,
+			"width": 360,
+			"height": 141,
+			"text": "## 🛠️ Helpers\n*Not part of the game — they help us build it*",
+			"color": "3"
+		},
+		{
+			"id": "t-qa",
+			"type": "text",
+			"x": 2840,
+			"y": -69,
+			"width": 320,
+			"height": 265,
+			"text": "### 🧪 qa-agent\n- Plays the game in a real browser using **Playwright**\n- Checks features + phone & desktop layout\n- Needs Playwright added with:\n`claude mcp add playwright -- npx @playwright/mcp@latest`",
+			"color": "3"
+		},
+		{
+			"id": "t-mapper",
+			"type": "text",
+			"x": 2840,
+			"y": 220,
+			"width": 320,
+			"height": 161,
+			"text": "### 🗺️ project-mapper\n- Reads the code (can't change it)\n- Writes the documentation",
+			"color": "3"
+		},
+		{
+			"id": "t-map",
+			"type": "text",
+			"x": 2840,
+			"y": 405,
+			"width": 320,
+			"height": 135,
+			"text": "### 📖 [[PROJECT_MAP.md]]\n- The full written guide, with line numbers",
+			"color": "3"
+		},
+		{
+			"id": "t-save",
+			"type": "text",
+			"x": 2840,
+			"y": 564,
+			"width": 320,
+			"height": 239,
+			"text": "### 💾 /save-project skill\n- Saves your work to GitHub\n- Commits + pushes with your message\n- Sets up Git or a new GitHub repo if missing\n`/save-project message:...`",
+			"color": "3"
+		},
+		{
+			"id": "t-grab",
+			"type": "text",
+			"x": 2840,
+			"y": 827,
+			"width": 320,
+			"height": 213,
+			"text": "### 📥 /grab-project skill\n- Downloads a project from GitHub\n- Or pulls the latest version into this one\n`/grab-project github-url:...`",
+			"color": "3"
+		},
+		{
+			"id": "g-git",
+			"type": "text",
+			"x": 3280,
+			"y": 564,
+			"width": 340,
+			"height": 187,
+			"text": "### 🔧 Git CLI\n- `git init` · `commit` · `push` · `pull` · `clone`\n- Signs in with the **gh** CLI's GitHub login"
+		},
+		{
+			"id": "g-mcp",
+			"type": "text",
+			"x": 3280,
+			"y": 827,
+			"width": 340,
+			"height": 161,
+			"text": "### 🐙 GitHub MCP\n- Checks a repo exists\n- Creates new repos\n- Uses its **own** access token"
+		},
+		{
+			"id": "g-hub",
+			"type": "text",
+			"x": 3720,
+			"y": 696.0,
+			"width": 320,
+			"height": 187,
+			"text": "### ☁️ GitHub\n[kabeier/test-repo](https://github.com/kabeier/test-repo)\n- The online copy of this project",
+			"color": "3"
+		},
+		{
+			"id": "f1",
+			"type": "text",
+			"x": 1880,
+			"y": 0,
+			"width": 380,
+			"height": 135,
+			"text": "### 1️⃣ Page loads\nA secret number is picked\n⚙️ `startNewGame()`",
+			"color": "4"
+		},
+		{
+			"id": "f2",
+			"type": "text",
+			"x": 1880,
+			"y": 195,
+			"width": 380,
+			"height": 135,
+			"text": "### 2️⃣ Player types a guess\n…and presses **Enter** or **Guess**\n⚙️ `handleGuess()`",
+			"color": "4"
+		},
+		{
+			"id": "f3",
+			"type": "text",
+			"x": 1880,
+			"y": 390,
+			"width": 380,
+			"height": 118,
+			"text": "### 3️⃣ Is it a whole number from 1–100?",
+			"color": "4"
+		},
+		{
+			"id": "f3no",
+			"type": "text",
+			"x": 2320,
+			"y": 370,
+			"width": 380,
+			"height": 187,
+			"text": "### ⚠️ Not valid\n“Please enter a whole number from 1 to 100.”\n**No guess used up**\n⚙️ `showFeedback()`",
+			"color": "2"
+		},
+		{
+			"id": "f4",
+			"type": "text",
+			"x": 1880,
+			"y": 568,
+			"width": 380,
+			"height": 135,
+			"text": "### 4️⃣ Use up one guess\nCompare with the secret number\n⚙️ `handleGuess()`",
+			"color": "4"
+		},
+		{
+			"id": "f4hint",
+			"type": "text",
+			"x": 2320,
+			"y": 578,
+			"width": 380,
+			"height": 135,
+			"text": "### 🔴 Too high / Too low\nGuesses left? Try again!\n⚙️ `showFeedback()`",
+			"color": "1"
+		},
+		{
+			"id": "f5win",
+			"type": "text",
+			"x": 1880,
+			"y": 793,
+			"width": 250,
+			"height": 187,
+			"text": "### 🎉 Correct!\nGreen pop-up\n**Play Again**\n⚙️ `showPopup()`",
+			"color": "4"
+		},
+		{
+			"id": "f5lose",
+			"type": "text",
+			"x": 2160,
+			"y": 793,
+			"width": 250,
+			"height": 187,
+			"text": "### 😢 Out of guesses\nRed pop-up shows the number\n**Try Again**\n⚙️ `showPopup()`",
+			"color": "1"
+		},
+		{
+			"id": "f6",
+			"type": "text",
+			"x": 1880,
+			"y": 1040,
+			"width": 380,
+			"height": 161,
+			"text": "### 5️⃣ Player closes the pop-up\n(ignored for the first second, so a quick extra Enter can't skip it)\n⚙️ `closePopup()`",
+			"color": "4"
+		},
+		{
+			"id": "f7",
+			"type": "text",
+			"x": 1880,
+			"y": 1261,
+			"width": 380,
+			"height": 144,
+			"text": "### 🔁 New game starts automatically\n⚙️ `startNewGame()`",
+			"color": "4"
+		},
+		{
+			"id": "legend",
+			"type": "text",
+			"x": 0,
+			"y": -620,
+			"width": 520,
+			"height": 317,
+			"text": "### 🗝️ How to read this map\n**Colours**\n🟣 plan · 🔵 index.html · 🟠 style.css · 🟢 script.js · 🟡 helpers & skills\n\n**Arrows**\n- Grey: *this file contains…*\n- Red, labelled: *files talking to each other*\n- Green/red in the game box: *what happens next*\n- Cyan: *which function handles that step*"
+		}
 	],
-	"edges":[
-		{"id":"e-plan-claude","fromNode":"plan","fromSide":"bottom","toNode":"claude","toSide":"left"},
-		{"id":"e-plan-wireframe","fromNode":"plan","fromSide":"bottom","toNode":"wireframe","toSide":"left"},
-		{"id":"e-html-h-head","fromNode":"html","fromSide":"bottom","toNode":"h-head","toSide":"left"},
-		{"id":"e-html-h-card","fromNode":"html","fromSide":"bottom","toNode":"h-card","toSide":"left"},
-		{"id":"e-html-h-form","fromNode":"html","fromSide":"bottom","toNode":"h-form","toSide":"left"},
-		{"id":"e-html-h-count","fromNode":"html","fromSide":"bottom","toNode":"h-count","toSide":"left"},
-		{"id":"e-html-h-popup","fromNode":"html","fromSide":"bottom","toNode":"h-popup","toSide":"left"},
-		{"id":"e-html-h-hill","fromNode":"html","fromSide":"bottom","toNode":"h-hill","toSide":"left"},
-		{"id":"e-html-h-script","fromNode":"html","fromSide":"bottom","toNode":"h-script","toSide":"left"},
-		{"id":"e-css-c-colors","fromNode":"css","fromSide":"bottom","toNode":"c-colors","toSide":"left"},
-		{"id":"e-css-c-yard","fromNode":"css","fromSide":"bottom","toNode":"c-yard","toSide":"left"},
-		{"id":"e-css-c-card","fromNode":"css","fromSide":"bottom","toNode":"c-card","toSide":"left"},
-		{"id":"e-css-c-feedback","fromNode":"css","fromSide":"bottom","toNode":"c-feedback","toSide":"left"},
-		{"id":"e-css-c-popup","fromNode":"css","fromSide":"bottom","toNode":"c-popup","toSide":"left"},
-		{"id":"e-css-c-phone","fromNode":"css","fromSide":"bottom","toNode":"c-phone","toSide":"left"},
-		{"id":"e-js-j-settings","fromNode":"js","fromSide":"bottom","toNode":"j-settings","toSide":"left"},
-		{"id":"e-js-j-memory","fromNode":"js","fromSide":"bottom","toNode":"j-memory","toSide":"left"},
-		{"id":"e-js-j-start","fromNode":"js","fromSide":"bottom","toNode":"j-start","toSide":"left"},
-		{"id":"e-js-j-guess","fromNode":"js","fromSide":"bottom","toNode":"j-guess","toSide":"left"},
-		{"id":"e-js-j-feedback","fromNode":"js","fromSide":"bottom","toNode":"j-feedback","toSide":"left"},
-		{"id":"e-js-j-showpopup","fromNode":"js","fromSide":"bottom","toNode":"j-showpopup","toSide":"left"},
-		{"id":"e-js-j-close","fromNode":"js","fromSide":"bottom","toNode":"j-close","toSide":"left"},
-		{"id":"e-tools-t-qa","fromNode":"tools","fromSide":"bottom","toNode":"t-qa","toSide":"left"},
-		{"id":"e-tools-t-mapper","fromNode":"tools","fromSide":"bottom","toNode":"t-mapper","toSide":"left"},
-		{"id":"e-tools-t-map","fromNode":"tools","fromSide":"bottom","toNode":"t-map","toSide":"left"},
-		{"id":"e-root-plan","fromNode":"root","fromSide":"bottom","toNode":"plan","toSide":"top"},
-		{"id":"e-root-html","fromNode":"root","fromSide":"bottom","toNode":"html","toSide":"top"},
-		{"id":"e-root-css","fromNode":"root","fromSide":"bottom","toNode":"css","toSide":"top"},
-		{"id":"e-root-js","fromNode":"root","fromSide":"bottom","toNode":"js","toSide":"top"},
-		{"id":"e-root-tools","fromNode":"root","fromSide":"bottom","toNode":"tools","toSide":"top"},
-		{"id":"e-f1-f2","fromNode":"f1","fromSide":"bottom","toNode":"f2","toSide":"top","color":"4"},
-		{"id":"e-f2-f3","fromNode":"f2","fromSide":"bottom","toNode":"f3","toSide":"top","color":"4"},
-		{"id":"e-f3-f3no","fromNode":"f3","fromSide":"right","toNode":"f3no","toSide":"left","color":"2","label":"no"},
-		{"id":"e-f3no-f2","fromNode":"f3no","fromSide":"top","toNode":"f2","toSide":"right","color":"2","label":"try again"},
-		{"id":"e-f3-f4","fromNode":"f3","fromSide":"bottom","toNode":"f4","toSide":"top","color":"4","label":"yes"},
-		{"id":"e-f4-f4hint","fromNode":"f4","fromSide":"right","toNode":"f4hint","toSide":"left","color":"1","label":"wrong"},
-		{"id":"e-f4hint-f2","fromNode":"f4hint","fromSide":"top","toNode":"f2","toSide":"right","color":"1","label":"try again"},
-		{"id":"e-f4-f5win","fromNode":"f4","fromSide":"bottom","toNode":"f5win","toSide":"top","color":"4","label":"correct"},
-		{"id":"e-f4-f5lose","fromNode":"f4","fromSide":"bottom","toNode":"f5lose","toSide":"top","color":"1","label":"last guess wrong"},
-		{"id":"e-f5win-f6","fromNode":"f5win","fromSide":"bottom","toNode":"f6","toSide":"top","color":"4"},
-		{"id":"e-f5lose-f6","fromNode":"f5lose","fromSide":"bottom","toNode":"f6","toSide":"top","color":"1"},
-		{"id":"e-f6-f7","fromNode":"f6","fromSide":"bottom","toNode":"f7","toSide":"top","color":"4"},
-		{"id":"e-f7-f2","fromNode":"f7","fromSide":"left","toNode":"f2","toSide":"left","color":"4","label":"play again"},
-		{"id":"e-root-flow-group","fromNode":"root","fromSide":"bottom","toNode":"flow-group","toSide":"top"},
-		{"id":"e-h-head-css","fromNode":"h-head","fromSide":"right","toNode":"css","toSide":"left","color":"1","label":"loads"},
-		{"id":"e-h-script-js","fromNode":"h-script","fromSide":"right","toNode":"js","toSide":"left","color":"1","label":"runs"},
-		{"id":"e-j-feedback-h-form","fromNode":"j-feedback","fromSide":"left","toNode":"h-form","toSide":"right","color":"1","label":"writes message into #feedback"},
-		{"id":"e-j-showpopup-h-popup","fromNode":"j-showpopup","fromSide":"left","toNode":"h-popup","toSide":"right","color":"1","label":"shows & fills"},
-		{"id":"e-j-feedback-c-feedback","fromNode":"j-feedback","fromSide":"left","toNode":"c-feedback","toSide":"right","color":"1","label":"picks colour class"},
-		{"id":"e-j-showpopup-c-popup","fromNode":"j-showpopup","fromSide":"left","toNode":"c-popup","toSide":"right","color":"1","label":"win / lose class"},
-		{"id":"e-claude-html","fromNode":"claude","fromSide":"right","toNode":"html","toSide":"left","color":"6","label":"rules for"},
-		{"id":"e-t-qa-flow-group","fromNode":"t-qa","fromSide":"left","toNode":"flow-group","toSide":"right","color":"3","label":"tests every step"},
-		{"id":"e-t-mapper-t-map","fromNode":"t-mapper","fromSide":"right","toNode":"t-map","toSide":"right","color":"3","label":"writes"},
-		{"id":"e-f1-j-start","fromNode":"f1","fromSide":"left","toNode":"j-start","toSide":"right","color":"5"},
-		{"id":"e-f2-j-guess","fromNode":"f2","fromSide":"left","toNode":"j-guess","toSide":"right","color":"5"},
-		{"id":"e-f6-j-close","fromNode":"f6","fromSide":"left","toNode":"j-close","toSide":"right","color":"5"}
+	"edges": [
+		{
+			"id": "e-plan-claude",
+			"fromNode": "plan",
+			"fromSide": "bottom",
+			"toNode": "claude",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-plan-wireframe",
+			"fromNode": "plan",
+			"fromSide": "bottom",
+			"toNode": "wireframe",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-html-h-head",
+			"fromNode": "html",
+			"fromSide": "bottom",
+			"toNode": "h-head",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-html-h-card",
+			"fromNode": "html",
+			"fromSide": "bottom",
+			"toNode": "h-card",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-html-h-form",
+			"fromNode": "html",
+			"fromSide": "bottom",
+			"toNode": "h-form",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-html-h-count",
+			"fromNode": "html",
+			"fromSide": "bottom",
+			"toNode": "h-count",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-html-h-popup",
+			"fromNode": "html",
+			"fromSide": "bottom",
+			"toNode": "h-popup",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-html-h-hill",
+			"fromNode": "html",
+			"fromSide": "bottom",
+			"toNode": "h-hill",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-html-h-script",
+			"fromNode": "html",
+			"fromSide": "bottom",
+			"toNode": "h-script",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-css-c-colors",
+			"fromNode": "css",
+			"fromSide": "bottom",
+			"toNode": "c-colors",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-css-c-yard",
+			"fromNode": "css",
+			"fromSide": "bottom",
+			"toNode": "c-yard",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-css-c-card",
+			"fromNode": "css",
+			"fromSide": "bottom",
+			"toNode": "c-card",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-css-c-feedback",
+			"fromNode": "css",
+			"fromSide": "bottom",
+			"toNode": "c-feedback",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-css-c-popup",
+			"fromNode": "css",
+			"fromSide": "bottom",
+			"toNode": "c-popup",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-css-c-phone",
+			"fromNode": "css",
+			"fromSide": "bottom",
+			"toNode": "c-phone",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-js-j-settings",
+			"fromNode": "js",
+			"fromSide": "bottom",
+			"toNode": "j-settings",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-js-j-memory",
+			"fromNode": "js",
+			"fromSide": "bottom",
+			"toNode": "j-memory",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-js-j-start",
+			"fromNode": "js",
+			"fromSide": "bottom",
+			"toNode": "j-start",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-js-j-guess",
+			"fromNode": "js",
+			"fromSide": "bottom",
+			"toNode": "j-guess",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-js-j-feedback",
+			"fromNode": "js",
+			"fromSide": "bottom",
+			"toNode": "j-feedback",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-js-j-showpopup",
+			"fromNode": "js",
+			"fromSide": "bottom",
+			"toNode": "j-showpopup",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-js-j-close",
+			"fromNode": "js",
+			"fromSide": "bottom",
+			"toNode": "j-close",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-tools-t-qa",
+			"fromNode": "tools",
+			"fromSide": "bottom",
+			"toNode": "t-qa",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-tools-t-mapper",
+			"fromNode": "tools",
+			"fromSide": "bottom",
+			"toNode": "t-mapper",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-tools-t-map",
+			"fromNode": "tools",
+			"fromSide": "bottom",
+			"toNode": "t-map",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-tools-t-save",
+			"fromNode": "tools",
+			"fromSide": "bottom",
+			"toNode": "t-save",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-tools-t-grab",
+			"fromNode": "tools",
+			"fromSide": "bottom",
+			"toNode": "t-grab",
+			"toSide": "left",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-t-save-g-git",
+			"fromNode": "t-save",
+			"fromSide": "right",
+			"toNode": "g-git",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "commit & push",
+			"color": "3"
+		},
+		{
+			"id": "e-t-save-g-mcp",
+			"fromNode": "t-save",
+			"fromSide": "right",
+			"toNode": "g-mcp",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"color": "3"
+		},
+		{
+			"id": "e-t-grab-g-mcp",
+			"fromNode": "t-grab",
+			"fromSide": "right",
+			"toNode": "g-mcp",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "check the URL",
+			"color": "3"
+		},
+		{
+			"id": "e-t-grab-g-git",
+			"fromNode": "t-grab",
+			"fromSide": "right",
+			"toNode": "g-git",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"color": "3"
+		},
+		{
+			"id": "e-g-git-g-hub",
+			"fromNode": "g-git",
+			"fromSide": "right",
+			"toNode": "g-hub",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "uploads & downloads files"
+		},
+		{
+			"id": "e-g-mcp-g-hub",
+			"fromNode": "g-mcp",
+			"fromSide": "right",
+			"toNode": "g-hub",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "manages repos"
+		},
+		{
+			"id": "e-root-plan",
+			"fromNode": "root",
+			"fromSide": "bottom",
+			"toNode": "plan",
+			"toSide": "top",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-root-html",
+			"fromNode": "root",
+			"fromSide": "bottom",
+			"toNode": "html",
+			"toSide": "top",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-root-css",
+			"fromNode": "root",
+			"fromSide": "bottom",
+			"toNode": "css",
+			"toSide": "top",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-root-js",
+			"fromNode": "root",
+			"fromSide": "bottom",
+			"toNode": "js",
+			"toSide": "top",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-root-tools",
+			"fromNode": "root",
+			"fromSide": "bottom",
+			"toNode": "tools",
+			"toSide": "top",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-f1-f2",
+			"fromNode": "f1",
+			"fromSide": "bottom",
+			"toNode": "f2",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"color": "4"
+		},
+		{
+			"id": "e-f2-f3",
+			"fromNode": "f2",
+			"fromSide": "bottom",
+			"toNode": "f3",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"color": "4"
+		},
+		{
+			"id": "e-f3-f3no",
+			"fromNode": "f3",
+			"fromSide": "right",
+			"toNode": "f3no",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "no",
+			"color": "2"
+		},
+		{
+			"id": "e-f3no-f2",
+			"fromNode": "f3no",
+			"fromSide": "top",
+			"toNode": "f2",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "try again",
+			"color": "2"
+		},
+		{
+			"id": "e-f3-f4",
+			"fromNode": "f3",
+			"fromSide": "bottom",
+			"toNode": "f4",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"label": "yes",
+			"color": "4"
+		},
+		{
+			"id": "e-f4-f4hint",
+			"fromNode": "f4",
+			"fromSide": "right",
+			"toNode": "f4hint",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "wrong",
+			"color": "1"
+		},
+		{
+			"id": "e-f4hint-f2",
+			"fromNode": "f4hint",
+			"fromSide": "top",
+			"toNode": "f2",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "try again",
+			"color": "1"
+		},
+		{
+			"id": "e-f4-f5win",
+			"fromNode": "f4",
+			"fromSide": "bottom",
+			"toNode": "f5win",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"label": "correct",
+			"color": "4"
+		},
+		{
+			"id": "e-f4-f5lose",
+			"fromNode": "f4",
+			"fromSide": "bottom",
+			"toNode": "f5lose",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"label": "last guess wrong",
+			"color": "1"
+		},
+		{
+			"id": "e-f5win-f6",
+			"fromNode": "f5win",
+			"fromSide": "bottom",
+			"toNode": "f6",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"color": "4"
+		},
+		{
+			"id": "e-f5lose-f6",
+			"fromNode": "f5lose",
+			"fromSide": "bottom",
+			"toNode": "f6",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"color": "1"
+		},
+		{
+			"id": "e-f6-f7",
+			"fromNode": "f6",
+			"fromSide": "bottom",
+			"toNode": "f7",
+			"toSide": "top",
+			"toEnd": "arrow",
+			"color": "4"
+		},
+		{
+			"id": "e-f7-f2",
+			"fromNode": "f7",
+			"fromSide": "left",
+			"toNode": "f2",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "play again",
+			"color": "4"
+		},
+		{
+			"id": "e-root-flow-group",
+			"fromNode": "root",
+			"fromSide": "bottom",
+			"toNode": "flow-group",
+			"toSide": "top",
+			"toEnd": "arrow"
+		},
+		{
+			"id": "e-h-head-css",
+			"fromNode": "h-head",
+			"fromSide": "right",
+			"toNode": "css",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "loads",
+			"color": "1"
+		},
+		{
+			"id": "e-h-script-js",
+			"fromNode": "h-script",
+			"fromSide": "right",
+			"toNode": "js",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "runs",
+			"color": "1"
+		},
+		{
+			"id": "e-j-feedback-h-form",
+			"fromNode": "j-feedback",
+			"fromSide": "left",
+			"toNode": "h-form",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "writes message into #feedback",
+			"color": "1"
+		},
+		{
+			"id": "e-j-showpopup-h-popup",
+			"fromNode": "j-showpopup",
+			"fromSide": "left",
+			"toNode": "h-popup",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "shows & fills",
+			"color": "1"
+		},
+		{
+			"id": "e-j-feedback-c-feedback",
+			"fromNode": "j-feedback",
+			"fromSide": "left",
+			"toNode": "c-feedback",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "picks colour class",
+			"color": "1"
+		},
+		{
+			"id": "e-j-showpopup-c-popup",
+			"fromNode": "j-showpopup",
+			"fromSide": "left",
+			"toNode": "c-popup",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "win / lose class",
+			"color": "1"
+		},
+		{
+			"id": "e-claude-html",
+			"fromNode": "claude",
+			"fromSide": "right",
+			"toNode": "html",
+			"toSide": "left",
+			"toEnd": "arrow",
+			"label": "rules for",
+			"color": "6"
+		},
+		{
+			"id": "e-t-qa-flow-group",
+			"fromNode": "t-qa",
+			"fromSide": "left",
+			"toNode": "flow-group",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "tests every step",
+			"color": "3"
+		},
+		{
+			"id": "e-t-mapper-t-map",
+			"fromNode": "t-mapper",
+			"fromSide": "right",
+			"toNode": "t-map",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"label": "writes",
+			"color": "3"
+		},
+		{
+			"id": "e-f1-j-start",
+			"fromNode": "f1",
+			"fromSide": "left",
+			"toNode": "j-start",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"color": "5"
+		},
+		{
+			"id": "e-f2-j-guess",
+			"fromNode": "f2",
+			"fromSide": "left",
+			"toNode": "j-guess",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"color": "5"
+		},
+		{
+			"id": "e-f6-j-close",
+			"fromNode": "f6",
+			"fromSide": "left",
+			"toNode": "j-close",
+			"toSide": "right",
+			"toEnd": "arrow",
+			"color": "5"
+		}
 	]
 }

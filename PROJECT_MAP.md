@@ -21,6 +21,10 @@ It is plain HTML, CSS and JavaScript. There is no build step and there are no de
 | `resources/number guessing wireframe.png` | The original design sketch. |
 | `.claude/agents/qa-agent.md` | Browser-testing agent definition. |
 | `.claude/agents/project-mapper.md` | Documentation-writing agent definition. |
+| `.claude/skills/save-project/SKILL.md` | `/save-project` skill: commit and push the project to GitHub. |
+| `.claude/skills/grab-project/SKILL.md` | `/grab-project` skill: download a project from GitHub, or pull the latest version. |
+| `Project Map.canvas` | Obsidian canvas: a visual tree of this map. |
+| `.gitignore` | Keeps Obsidian's `workspace.json` and Playwright test output out of Git. |
 
 The wireframe shows four screens: wrong guess, wrong guess with lose pop-up ("Try Again"), right guess, and right guess with win pop-up ("Play Again"). The built game follows it. Two things differ from the wireframe:
 - **Hints:** the wireframe says "your guess was incorrect", but `CLAUDE.md` requires "Too high" / "Too low", so the game uses those.
@@ -164,8 +168,10 @@ Note: the guess count and range appear in several places (JS constants, HTML tex
 - **The 1-second guard is a "no skipping the announcement" rule.** The announcer finishes the result before anyone may wave it away.
 - **The wireframe is the architect's sketch,** drawn before any building started.
 - **CLAUDE.md is the rulebook the whole team agrees on** before building.
+- **Agents are teammates; skills are recipe cards.** An agent is a helper you hand a job to (the tester, the documenter). A skill is a written set of steps Claude follows when you type its `/command`.
+- **Git is a save-game system, and GitHub is the cloud save.** `/save-project` saves your progress and uploads it; `/grab-project` loads it back onto any computer.
 
-## 7. Tooling (`.claude/agents/`)
+## 7. Tooling (`.claude/agents/` and `.claude/skills/`)
 
 ### qa-agent (`.claude/agents/qa-agent.md`)
 - Model: `opus`. Tools: `mcp__playwright__*`.
@@ -180,6 +186,38 @@ Note: the guess count and range appear in several places (JS constants, HTML tex
 ### project-mapper (`.claude/agents/project-mapper.md`)
 - Model: `sonnet`. Tools: `Read, Grep, Glob` (read-only).
 - Role: acts as the Technical Lead. It scans the codebase and produces documentation (this kind of map) covering layout, how components connect, and non-technical analogies. It follows the Single Responsibility Principle to document each piece efficiently.
+
+### /save-project skill (`.claude/skills/save-project/SKILL.md`)
+- Usage: `/save-project message:<commit message> repository-name:<name>`. `message` is required. `repository-name` is only used if a new GitHub repo has to be created; otherwise the project folder name is used.
+- Steps:
+  1. Run `git init` if the project has no `.git` folder yet.
+  2. Make sure a GitHub repo is attached as the remote. If not, create one with the **GitHub MCP** and attach it.
+  3. Commit with the given message.
+  4. Push to GitHub.
+- It only saves what has already changed. It does not edit files, so if nothing has changed there is nothing to commit.
+
+### /grab-project skill (`.claude/skills/grab-project/SKILL.md`)
+- Usage: `/grab-project github-url:<https URL>`. The URL is optional and only needed when downloading a project that isn't on this machine yet.
+- With a URL: confirm the repo exists with the **GitHub MCP**, download it with **Git**, then move into the project folder.
+- Without a URL, inside an existing project: pull the latest version from the remote.
+
+### How the skills reach GitHub
+
+```mermaid
+flowchart LR
+  S["/save-project"] -->|commit & push| G[Git CLI]
+  S -->|create repo if missing| M[GitHub MCP]
+  R["/grab-project"] -->|check the URL| M
+  R -->|clone / pull| G
+  G -->|uploads & downloads files| H[(GitHub: kabeier/test-repo)]
+  M -->|manages repos| H
+```
+
+The two tools sign in separately:
+- **Git CLI** uses the GitHub login stored by the `gh` CLI.
+- **GitHub MCP** uses its own access token. If that token is a fine-grained token limited to certain repos, it can only see or create repos it has been given access to.
+
+A permission error from one doesn't mean the other is broken.
 
 ## Notes for maintainers
 - `CLAUDE.md` says to keep the game simple, add no unrequested features, and explain major gameplay changes before making them.
