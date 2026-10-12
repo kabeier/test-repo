@@ -41,3 +41,5 @@ When working on this project:
 - Make instructions and messages clear to someone using the game for the first time.
 - Before making major changes to how the game works, explain the proposed change first.
 - Use the project resources and instructions provided in this repository as guidance.
+
+- edit to prove a point
