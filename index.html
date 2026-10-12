@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess a Number</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <p class="paws" aria-hidden="true">🐾 🐾 🐾</p>
+    <h1>Guess a Number</h1>
+    <p class="subtitle">
+      Let's play a guessing game!<br>
+      Guess a number between 1 and 100.<br>
+      You have 5 guesses total.
+    </p>
+
+    <form id="guess-form" class="guess-form" novalidate>
+      <label for="guess-input">Enter your guess:</label>
+      <div class="guess-row">
+        <input id="guess-input" type="number" min="1" max="100" step="1" inputmode="numeric" autocomplete="off">
+        <button id="guess-button" type="submit">Guess</button>
+      </div>
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+    </form>
+
+    <div class="remaining">
+      <p class="remaining-label">Remaining Guesses</p>
+      <p id="remaining-count" class="remaining-count">5</p>
+    </div>
+  </main>
+
+  <div class="hill" aria-hidden="true"></div>
+
+  <div id="popup" class="popup-backdrop" hidden>
+    <div id="popup-box" class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-message">
+      <p id="popup-message" class="popup-message"></p>
+      <button id="popup-button" type="button"></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

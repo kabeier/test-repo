@@ -1,0 +1,19 @@
+{
+  "activeProfile": {
+    "name": "dafault-test",
+    "modifiedAt": "2026-10-12T20:50:05.865Z"
+  },
+  "profileUpdate": true,
+  "profileUpdateDelay": 800,
+  "uiUpdate": true,
+  "uiUpdateInterval": 1000,
+  "devices": {
+    "e177953a9dcc5f8468c48e401db2aae693058618e27b81aeff839edbbfcccaa7": "/home/fox/.local/share/obsidianplugins/Profiles"
+  },
+  "statusbarInteraction": {
+    "click": "auto",
+    "ctrl_click": "none",
+    "shift_click": "none",
+    "alt_click": "none"
+  }
+}

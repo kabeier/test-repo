@@ -1,0 +1,5 @@
+# Obsidian rewrites this every time panes change
+.obsidian/workspace.json
+
+# Playwright test screenshots and logs
+.playwright-mcp/
